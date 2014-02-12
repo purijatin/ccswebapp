@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Welcome</title>
+	
+	<link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.2.0.css" />
+	
+	<link rel="stylesheet" href="css/themes/aol.min.css" />
+	<link rel="stylesheet" href="css/ccsstyle.css" />
+	<script src="js/jquery.js"></script>
+	 
+	<script src="js/jquery.mobile-1.2.0.js"></script>
+	
+</head>
+<body>  
+
+ <div data-role="page" id="programMenu">  
+   <header data-role="header">
+	<h1>CCS 2013</h1>
+	<a href="index.html" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right">Home</a>
+   </header>  
+   <div data-role="content" >
+	<div class="content-primary">
+
+		<form action="#" method="get">
+
+			<h2>Mini form elements</h2>
+
+			<p>All form controls accept a <code>data-mini="true"</code> attribute that renders a smaller version of the <a href="forms-all.html">standard-sized</a> form elements. In the case of grouped buttons, the <code>data-mini="true"</code> attribute can be added to the containing controlgroup. <a href="forms-all-compare.html">Compare mini and normal</a> form elements side-by-side.</p>
+			
+			
+						  
+					<fieldset data-role="controlgroup" data-mini="true" id="questionFieldset">
+						  <legend id="questionlegend">What is your name &#63;</legend>
+						  <input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice1" checked="checked" />
+						  <label for="radio-choice-1">jatin</label>
+						  <input type="radio" name="radio-choice-2" id="radio-choice-2" value="choice2"/>
+						  <label for="radio-choice-2">nehil</label>
+					</fieldset>	 
+						 
+						
+
+			
+					
+			
+			<div data-role="fieldcontain">
+				<label for="name">Name:</label>
+				<input type="text" name="name" id="name" value="" data-mini="true" />
+			</div>
+			
+			<div data-role="fieldcontain">
+				<label for="name">Designtion:</label>
+				<input type="text" name="name" id="name" value="" data-mini="true" />
+			</div>
+			
+			<div data-role="fieldcontain">
+				<label for="name">Organisation:</label>
+				<input type="text" name="name" id="name" value="" data-mini="true" />
+			</div>
+			
+			<div data-role="fieldcontain">
+				<label for="name">Industry:</label>
+				<input type="text" name="name" id="name" value="" data-mini="true" />
+			</div>
+			
+
+			<div data-role="fieldcontain">
+			<label for="textarea">Textarea:</label>
+			<textarea cols="40" rows="8" name="textarea" id="textarea" data-mini="true"></textarea>
+			</div>
+
+		<div class="ui-body ui-body-b">
+		<fieldset class="ui-grid-a">
+				<div class="ui-block-a"><button type="submit" data-theme="d" data-mini="true">Cancel</button></div>
+				<div class="ui-block-b"><button type="submit" data-theme="a" data-mini="true">Submit</button></div>
+		</fieldset>
+		</div>
+	</form>
+	</div><!--/content-primary -->		
+	
+	
+   </div>
+ </div>
+ 
+ 
+</body> 
+</html>

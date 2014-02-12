@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Welcome</title>
+
+<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.2.0.css" />
+
+<link rel="stylesheet" href="css/themes/aol.min.css" />
+<link rel="stylesheet" href="css/ccsstyle.css" />
+<script src="js/jquery.js"></script>
+
+<script src="js/jquery.mobile-1.2.0.js"></script>
+
+<script>
+	// Global declarations - assignments made in $(document).ready() below
+
+	$(document).on(
+			'pageshow',
+			function(event, data) {
+
+				var speakername = getUrlVars()["id"];
+
+				console
+						.log('speaker value = ' + speakername );
+				postVote();
+			
+				 function postVote(){
+				 var result = null;
+
+				  console.log('and options'+speakername);
+				  $.get("/rest/ssummary/get", { id : speakername})
+				       .done(function(data) {
+					  console.log("Data Loaded: " + typeof(data)+ " type "+ data);
+						result = '<p>'+data+'</p>';
+					  $('#resultDisplay').html(result);
+					  $("#VoteDisplay").closest("div[data-role=page]").trigger("create");
+				       });     
+				   }
+
+			});
+	function getUrlVars() {
+		var vars = [], hash;
+		var hashes = window.location.href.slice(
+				window.location.href.indexOf('?') + 1).split('&');
+		for ( var i = 0; i < hashes.length; i++) {
+			hash = hashes[i].split('=');
+			vars.push(hash[0]);
+			vars[hash[0]] = hash[1];
+		}
+		return vars;
+
+	}
+</script>
+
+</head>
+
+<body>
+<p><b>Synopsis</b></p>
+	<div data-role="page" id="VoteDisplay">
+		<header data-role="header">
+			<h6>Corporate Culture and Spirituality</h6>
+			<a href="index.html" data-icon="home" data-iconpos="notext"
+				data-direction="reverse" class="ui-btn-right">Home</a>
+		</header>
+		<div data-role="content">
+			<div class="content-primary" id="resultDisplay"></div>
+			<!--/content-primary -->
+
+
+		</div>
+	</div>
+
+
+
+</body>
+</html>

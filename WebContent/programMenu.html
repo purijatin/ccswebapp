@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Welcome</title>
+	
+	<link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.2.0.css" />
+	
+	<link rel="stylesheet" href="css/themes/aol.min.css" />
+	<link rel="stylesheet" href="css/ccsstyle.css" />
+	<script src="js/jquery.js"></script>
+	 
+	<script src="js/jquery.mobile-1.2.0.js"></script>
+	<script src="js/jquery.cookie.js"></script>
+	<script>$('#mainMenu').live('pageshow', function(event) {
+	   $.cookie('uid', 'null', { expires: 7, path: '/' });
+	   console.log('The value of UID = '+$.cookie('uid'));
+	});
+	</script>
+	
+</head>
+<body>  
+ 
+ </div>
+ <div data-role="page" id="programMenu" data-add-back-btn="true">  
+   <header data-role="header">
+	<h1>CCS 2013</h1>
+	<a href="./index.html" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right">Home</a>
+   </header>  
+   <div data-role="content" >
+	<ul data-role="listview" data-inset="true" data-theme="a" data-dividertheme="a">
+				<li data-role="list-divider">Programs on?</li>
+				<li><a href="#thurs" data-transition="slidefade">  Thurs. 7th February 2013 </h1>    </a></li>
+				<li><a href="#day1" data-transition="slidefade">  CCS Day 1 &#45; Fri. 8th February 2013 </h1>    </a></li>
+				<li><a href="#day2" data-transition="slidefade">  CCS Day 2 &#45; Sat. 9th February 2013 </h1>    </a></li>
+				<li><a href="#sun" data-transition="slidefade">  Sun. 10th February 2013 </h1>    </a></li>
+				
+	</ul>
+   </div>
+ </div>
+ 
+ 
+ 
+ <div data-role="page" id="thurs" data-add-back-btn="true">   
+   <header data-role="header">
+	<h1>CCS 2013</h1>
+	<a href="index.html" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right">Home</a>
+   </header>  
+   <div data-role="content" >
+	<div data-role="collapsible-set" data-theme="a">
+			<div data-role="collapsible" >
+				<h3>Registration desk opens at 12:00</h3>
+				<p>Delegates to register for the CCS Conference</p>
+				<p>For those delegates who would like to see the activities of the Ashram,
+				a guided tour has been arranged at the following times: 15:00, 16:00 and 17:00.
+				Delegates are requested to assemble at least 10 minutes before the time from the
+				Visitors Information Centre near the Amphitheatre. </p>
+
+  
+			</div>
+			<div data-role="collapsible">
+				<h3>Lunch: 13:00 &#45; 14:30 at Dining Hall First Floor</h3>
+				<p>Satsang and Knowledge Session with
+				His Holiness Sri Sri Ravi Shankar: 18:30 &#45; 20:00 at Amphitheatre </p>
+			</div>
+			<div data-role="collapsible" >
+				<h3>Dinner: 20:00 &#45; 21:30 at Dining Hall First Floor</h3>
+				<p>Enjoy your meal!</p>
+			</div>
+		</div>
+   </div>
+ </div>
+ 
+ <div data-role="page" id="sun" data-add-back-btn="true">   
+   <header data-role="header">
+	<h1>CCS 2013</h1>
+	<a href="index.html" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right">Home</a>
+   </header>  
+   <div data-role="content" >
+	<div data-role="collapsible-set" data-theme="a">
+			<div data-role="collapsible" data-collapsed="false">
+				<h3>Check out time until 12:00</h3>
+				<p>Delegates are requested to kindly handover Ashram Passes
+				and Room Keys at the Reception before leaving.  </p>
+
+  
+			</div>
+			
+		</div>
+   </div>
+ </div>
+ 
+ 
+ 
+<div data-role="page" id="day1" data-theme="a" data-add-back-btn="true">  
+   <header data-role="header">
+	<h1>CCS 2013</h1>
+	<a href="./index.html" data-icon="home" data-iconpos="notext"  class="ui-btn-right">Home</a>
+   </header>  
+   <div data-role="content">
+	
+	<h1 >CCS Day 1 &#45; 8th February 2013 </h1>
+	
+	<div data-role="collapsible-set" data-theme="a">
+			<div data-role="collapsible" >
+				<h3>06:45 &#45; 07:30 : Yoga Session (optional)</h3>
+				<p>
+				 Yoga Session (optional) for delegates staying at the Ashram </p>
+				<p>Venue: Mahavir Hall (2nd Floor of Vishalakshi Mantap)</p>
+				<p>Participants are advised to wear loose and comfortable clothing </p>     
+			</div>
+			<div data-role="collapsible">
+				<h3>08:00 &#45; 09:00 : Breakfast  </h3>
+				<p>Venue: Dining Hall First Floor </p>
+			</div>
+			<div data-role="collapsible" >
+				<h3>09:00 &#45; 09:45 : Registration for CCS  </h3>
+				<p>Registration Desk closes at 09:45 </p>
+			</div>
+			<div data-role="collapsible">
+				<h3> 09:30 : Doors open for Inaugural Session </h3>
+				<p>Venue: Vishalakshi Mantap</p>
+			</div>
+			<div data-role="collapsible">
+				<h3>09:55 : Doors close for Inaugural Session  </h3>
+				
+			</div>
+			<div data-role="collapsible">
+				<h3>10:00 &#45; 11:45  : Inaugural Session   </h3>
+				<p>Venue: Vishalakshi Mantap </p>
+			</div>
+			<div data-role="collapsible">
+				<h3>11:45 &#45; 11:55   : Changeover for next session    </h3>
+				
+			</div>
+			<div data-role="collapsible">
+				<h3> 11:55   : Doors close for Session 1     </h3>
+				
+			</div>
+			<div data-role="collapsible">
+				<h3>12:00 &#45; 13:00    : Session 1 :Spirituality and Sustained Growth   </h3>
+				<p>Spirituality and Sustained Growth &#45; Quick Profits or Sustainability?</p>
+				<p>Venue: Vishalakshi Mantap </p>
+				
+			</div>
+			<div data-role="collapsible">
+				<h3>13:00 &#45; 14:00   : Lunch    </h3>
+				<p> Venue: Dining Hall First Floor </p>
+				
+			</div>
+			<div data-role="collapsible">
+				<h3>14:00  : Doors open for Session 2    </h3>
+				<p> Venue: Vishalakshi Mantap </p>
+				
+			</div>
+			<div data-role="collapsible">
+				<h3>14:25  : Doors close for Session 2    </h3>
+				
+				
+			</div>
+			<div data-role="collapsible">
+				<h3>14:30 &#45; 16:00  : Session 2: The Law of Attracting Abundance    </h3>
+				<p>The Law of Attracting Abundance &#45; Intuition and Innovation</p>
+				<p> Venue: Vishalakshi Mantap</p>
+				
+			</div>
+			<div data-role="collapsible">
+				<h3>16:30 &#45; 18:00   : B2B Networking Session    </h3>
+				<p>Venue: Radha Kunj </p>
+				<p>Guided Meditation at 17:30  </p>	
+			</div>
+			<!-- <div data-role="collapsible">
+				<h3>16:30 &#45; 17:15   : Leadership Education Breakaway (optional)    </h3>
+				<p>Venue: Vishalakshi Mantap</p>
+				<p>Participants can join the B2B Networking Session at Radha Kunj after the session</p>
+				
+				
+			</div> -->
+			<div data-role="collapsible">
+				<h3>18:30 &#45; 20:00  : Satsang and Knowledge Session    </h3>
+				<p>Satsang and Knowledge Session with His Holiness Sri Sri Ravi Shankar</p>
+				<p> Venue: Amphitheatre </p>
+				
+			</div>
+			<div data-role="collapsible">
+				<h3>20:00 &#45; 21:30  : Dinner     </h3>
+				<p> Venue: Dining Hall First Floor </p>
+				
+				
+			</div>
+			
+		</div>	
+   </div>
+</div>
+
+<div data-role="page" id="day2" data-theme="a" data-add-back-btn="true">  
+   <header data-role="header">
+	<h1>CCS 2013</h1>
+	<a href="./index.html" data-icon="home" data-iconpos="notext"  class="ui-btn-right">Home</a>
+   </header>  
+   <div data-role="content">
+	
+	<h1 >CCS Day 2 &#45; 9th February 2013 </h1>
+	
+	<div data-role="collapsible-set" data-theme="a">
+			<div data-role="collapsible" >
+				<h3>06:45 &#45; 07:30 : Yoga Session (optional)</h3>
+				<p>
+				 Yoga Session (optional) for delegates staying at the Ashram </p>
+				<p>Venue: Mahavir Hall (2nd Floor of Vishalakshi Mantap)</p>
+				<p>Participants are advised to wear loose and comfortable clothing </p>     
+			</div>
+			<div data-role="collapsible">
+				<h3>08:00 &#45; 09:00 : Breakfast  </h3>
+				<p>Venue: Dining Hall First Floor </p>
+			</div>
+			<div data-role="collapsible" >
+				<h3>09:15  : Doors open for Session 3  </h3>
+				<p>Venue: Vishalakshi Mantap  </p>
+			</div>
+			<div data-role="collapsible">
+				<h3> 09:40  : Doors close for Session 3 </h3>
+				
+			</div>
+			<div data-role="collapsible">
+				<h3>09:45 &#45; 11:00  : Session 3: Advantage Karnataka  </h3>
+				<p>Advantage Karnataka &#45; Marketing, Manageability and Margins</p>
+				<p>Venue: Vishalakshi Mantap</p>
+				
+			</div>
+			
+			<div data-role="collapsible">
+				<h3>11:00 &#45; 11:25  : Changeover for next session    </h3>
+				
+			</div>
+			<div data-role="collapsible">
+				<h3> 11:25   : Doors close for Session 4    </h3>
+				
+			</div>
+			<div data-role="collapsible">
+				<h3>11:30 &#45; 13:00    : Session 4: A Human Touch to the Economic Crisis   </h3>
+				<p>A Human Touch to the Economic Crisis &#45; Corporate Social Responsibility: Boon or Burden? </p>
+				<p>Venue: Vishalakshi Mantap </p>
+				
+			</div>
+			<div data-role="collapsible">
+				<h3>13:00 &#45; 14:00   : Lunch    </h3>
+				<p> Venue: Dining Hall First Floor </p>
+				
+			</div>
+			<div data-role="collapsible">
+				<h3>14:00  : Doors open for Session 5    </h3>
+				<p> Venue: Vishalakshi Mantap </p>
+				
+			</div>
+			<div data-role="collapsible">
+				<h3>14:25  : Doors close for Session 5    </h3>
+			       
+				
+			</div>
+			<div data-role="collapsible">
+				<h3>14:30 &#45; 15:45  : Session 5: Inspiration and Implementation    </h3>
+				<p> Inspiration and Implementation &#45; Time, Mind and Business</p>
+				<p> Venue: Vishalakshi Mantap</p>
+				
+			</div>
+			<div data-role="collapsible">
+				<h3>15:45 &#45; 15:55  : Changeover for next Session    </h3>
+				
+			</div>
+			<div data-role="collapsible">
+				<h3> 15:55    : Doors close for next Session    </h3>
+				
+			</div>
+			
+			<div data-role="collapsible">
+				<h3>16:00 &#45; 16:30   : Leadership Education Session    </h3>
+				<p> Venue: Vishalakshi Mantap  </p>
+				
+			</div>
+			<div data-role="collapsible">
+				<h3>16:30 &#45; 16:40   : Changeover for Valedictory Session    </h3>
+				
+				
+			</div>
+			<div data-role="collapsible">
+				<h3>16:40       : Doors close for Valedictory Session    </h3>
+				
+				
+			</div>
+			<div data-role="collapsible">
+				<h3>16:45 &#45; 17:30   : Valedictory Session    </h3>
+				<p> Venue: Vishalakshi Mantap  </p>
+				
+			</div>
+			<div data-role="collapsible">
+				<h3>17:30  : CCS Conference Closes      </h3>
+		 	</div>
+			
+		</div>	
+   </div>
+</div>
+ 
+ 
+ 
+ 
+</body> 
+</html>

@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+     var json = ""
+      $.ajax({
+          url: 'http://localhost:8080/rest/vote/newResult',//change the url
+          type: 'GET',
+          dataType: 'json',
+          error : function (xhr, status, error){ document.title='error'; console.log('status:'+status+' xhr:' + xhr); }, 
+          success: function (data) {
+             json = data;
+		}
+		}
+      });
+      function drawChart() {
+
+        //var json = '{"q":"What is your name?//sample question","options":[{"option":"Jatin","votes":"30"},{"option":"Nehil","votes":"70"}]}';
+        
+        var values = new Array();
+        values[0] = ['Option', 'Votes'];
+        for(i in json.options)
+        {
+            values[values.length] = [json.options[i].option, parseInt(json.options[i].votes)];
+        }
+        var data = google.visualization.arrayToDataTable(values);
+        var options = {
+          title: 'Votes distribution'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link href="css/flot-example.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+<script src="js/jquery.js"></script>
+
+<link rel="stylesheet" href="css/graph.css" />
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot/excanvas.min.js"></script><![endif]-->
+<script language="javascript" type="text/javascript" src="js/flot/jquery.flot.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/flot/jquery.flot.pie.min.js"></script>
+<!--<script language="javascript" type="text/javascript" src="js/flot-example.js"></script> -->
+<script>
+    $(document).ready(init);
+
+function init() {
+	
+        var json = '';
+        var numOptions = null;
+        var dataA = new Array();
+        var ticksA = new Array();
+        var qText= '';
+        var optionsA = '';
+       $.getJSON('/rest/ssummary/get', function(data) {
+        console.log('server respone'+ data.options);
+            //json =  JSON.parse(data);
+            qText = data.q;
+            var qdisp = '<p>'+qText+'</p>';
+             console.log(qdisp);
+            console.log('response decoded a'+ qText);
+            optionsA = data.options;
+            console.log('response decoded a'+ optionsA);
+            $.each(optionsA,function(index, value){
+                 console.log('response decoded a'+ value.option);
+                 var ci =parseInt(index+1);
+                 dataA[index] = [ci , parseInt(value.votes) ];
+                    console.log(dataA);
+                    ticksA[index] = [ci , value.option ];
+                    console.log(ticksA);
+                 
+            });
+        console.log('end of each');
+        
+       
+       console.log('came here');
+         console.log(dataA);
+         console.log(ticksA);
+        
+        var options = {
+          title: 'Votes distribution'
+        };
+	// example 2 - basic bar graph
+        
+       
+        
+     
+        
+	$.plot(
+		$("#flot-example-2"),
+		[
+			{
+				label: "Votes percentage",
+				data: dataA,
+				bars: {
+					show: true,
+					barWidth: 0.5,
+					align: "center"
+				}	
+			}
+		],
+		{
+			xaxis: {
+				ticks: ticksA
+			}	
+		}
+	);
+          $(qdisp).appendTo('#qdisp');
+     });	
+	
+}
+</script>
+</head>
+
+<body>
+
+<div data-role="page" id="VoteDisplay" class="container">
+		<header data-role="header" class="header">
+			<h1>CCS 2013</h1>
+			
+		</header>
+		<div data-role="content" class="mainbody">
+			<div class="content-primary" id="resultDisplay"></div>
+			<!--/content-primary -->
+                        <h1>Voting Results</h1>
+
+                        <h2 id="qdisp"></h2>
+                        <div id="flot-example-2" class="graph-area"></div>
+
+
+		</div>
+	</div>
+</body>
+</html>

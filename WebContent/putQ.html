@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+	<style type="text/css">
+		.question {
+			border: 1px solid black;
+			margin-bottom: 5px;
+			background-color: #E1E1E1;
+			padding: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div id="formRoot"></div>
+	<!--<button class="addQuestion">(+)Add Question</button> -->
+	<button class="submit">Submit</button>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('.addQuestion').click(function(e){
+			window.serialNo+=1;
+			var qObj=new question(window.serialNo);
+			$('#formRoot').append(qObj.render().$);
+			questions.push(qObj);
+		});
+		window.questions=[];
+		window.serialNo=1;
+		//Questions
+		var qObj=new question(window.serialNo);
+		$('#formRoot').append(qObj.render().$);
+		questions.push(qObj);
+
+
+		$('.submit').click(function(e){
+			var answers=questions[0].toJSON()
+
+			// for (var i = 0; i < questions.length; i++) {
+			// 	answers.push(questions[i].toJSON());
+			// };
+			console.log("data:"+JSON.stringify(answers));
+			$.ajax({
+			  type: "POST",
+			  data: {data:JSON.stringify(answers)},
+			  url: "/rest/vote/question", //provide url of form
+			  success: function(data){alert('sucess');}
+			});
+		});
+			
+
+	});
+
+	var question = function(serial) {
+		this.$=$('<div class="question"><label class="q-serial"></label><label>Put Your Question Below</label><div class="q-Text"><input type="text" name="" value="" placeholder=""></div><div class=""><select name="" class="q-select"><option>Select No. of Options</option></select></div><div class="q-answers"></div></div>');
+
+		this.answersDOM=$('<div><input type="text" name="" value="" placeholder="" class="q-ans-1"><input type="text" name="" value="" placeholder="" class="q-ans-2"><input type="text" name="" value="" placeholder="" class="q-ans-3"></div>');
+		this.addDropDownListener = function() {
+			var self=this;
+			this.$.find('.q-select').change(function(e){
+				console.log('DDL Change Happened');
+				var optioncnt=Number($(this).val());
+				var optionDiv = $(this).closest('.question').find('.q-answers').empty();
+				for (var i = 0; i < optioncnt; i++) {
+					optionDiv.append('<div class="q-answer"><label>Option '+(i+1)+'</label><input  type="text"></div>');
+				};
+			});
+		}
+
+		this.render = function() {
+			this.$.find('.q-serial').append(serial + ". ");
+			var ddl=this.$.find('.q-select');
+			for (var i = 0; i < 10; i++) {
+				ddl.append('<option>'+(i+1)+'</option>');
+			};
+			this.addDropDownListener();
+			return this;
+		}
+		this.toJSON = function(){
+			var optionsSubmitted=$(this.$).find('.q-answers').find('input[type=text]').map(function(){return $(this).val()}).get();
+			//console.log('optionssubmitted '+optionsSubmitted[0]);
+			var optionsFormatted = '';
+			$.each(optionsSubmitted,function(index, value) {
+			console.log(index + ': ' + value);
+			if(index === 0){
+				optionsFormatted += value;
+			}
+			else{
+				optionsFormatted += '____';
+				optionsFormatted += value;
+			}
+			console.log(optionsFormatted);
+			
+			});
+			var question=$(this.$).find('.q-Text').find('input[type=text]').val();
+			var qObject={q:question, num:optionsSubmitted.length, options:optionsFormatted};
+			return qObject;
+		}
+	}
+	</script>
+</body>
+</html>

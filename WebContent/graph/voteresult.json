@@ -1,0 +1,13 @@
+{
+    "q": "What is your name?",
+    "options": [
+        {
+            "option": "Jatin",
+            "votes": "30"
+        },
+        {
+            "option": "Nehil",
+            "votes": "70"
+        }
+    ]
+}

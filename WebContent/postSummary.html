@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Welcome</title>
+	
+	<link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.2.0.css" />
+	
+	<link rel="stylesheet" href="css/themes/aol.min.css" />
+	<link rel="stylesheet" href="css/ccsstyle.css" />
+	<script src="js/jquery.js"></script>
+	 
+	<script src="js/jquery.mobile-1.2.0.js"></script>
+        <script src="js/jquery.cookie.js"></script>
+	<script>
+	function getUrlVars()
+		  {
+		      var vars = [], hash;
+		      var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		      for(var i = 0; i < hashes.length; i++)
+		      {
+			  hash = hashes[i].split('=');
+			  vars.push(hash[0]);
+			  vars[hash[0]] = hash[1];
+		      }
+		      return vars;
+		  
+		  }
+		  
+	 $(document).on('pageshow' , function(event, data){
+		var sNum = getUrlVars()["sNum"];
+		console.log('sNUm = ' + sNum);
+		 $('#sessionNum').val(sNum);
+	 });
+		  
+		  
+		  
+		  </script>
+</head> 
+
+<body>
+	  
+	  <div data-role="page" id="VoteDisplay" data-add-back-btn="true">  
+		    <header data-role="header">
+			 <h1>CCS 2013</h1>
+			 <a href="index.html" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right">Home</a>
+		    </header>  
+		    <div data-role="content" >
+			 
+			 
+			 
+			 <div class="content-primary">
+		 
+			   <form action="/rest/ssummary/submit" method="post" class="ui-body ui-body-a ui-corner-all">
+				<fieldset>
+				    
+				<div data-role="fieldcontain">
+				<label for="id" class="select">Choose name:</label>
+				<select name="id" id="id">
+					
+					
+					<option value="ravishankar">Sri Sri Ravi Shankar</option>
+    				
+				
+				<option value="muniyappa">K.H. Muniyappa</option>
+				
+				<option value="ananth">Ananth Kumar</option>
+				
+				<option value="joe">Joe Leinen</option>
+				
+				<option value="nirj">Nirj Deva</option>
+				
+				<option value="kamath">K.V. Kamath</option>
+				
+				<option value="devi">Professor Devi Singh</option>
+				
+				<option value="mahesh">Mahesh Gupta</option>
+				
+				<option value="prabhat">Prabhat Rao</option>
+				
+				<option value="anil">Anil Singhvi</option>
+				
+				<option value="pavan">Pavan Kumar Varma</option>
+				
+				<option value="rajeev">Prof. Rajeev Srinivasan</option>
+				
+				<option value="harish">Harish Bhat</option>
+				
+				<option value="gunter">Gunter Conrad</option>
+				
+				<option value="meena">Meena Ganesh</option>
+				
+				<option value="namal">Namal Rajapakse</option>
+				
+				<option value="venkatesh">T. Venkatesh</option>
+				
+				<option value="mohandas">Mohandas Pai</option>
+				
+				<option value="anup">Anup K Pujari</option>
+				
+				
+				<option value="raghuram">H.V. Raghuram</option>
+				
+				<option value="maheshwar">M. Maheshwar Rao, I.A.S.</option>
+				
+				<option value="maya">Prof. Maya Chakravarti Vishwanathan</option>
+				
+				<option value="satya">Satya Bansal</option>
+				
+				<option value="anne">Anne Marie Lizin</option>
+				
+				<option value="nayak">Mr. R. N. Nayak</option>
+				
+				<option value="dinesh">Dinesh Shahra</option>
+				
+				<option value="sudheesh">Sudheesh Venkatesh</option>
+				
+				<option value="mishra">Dr. K.C. Mishra</option>
+				
+				<option value="arunkumar">Mr. N T Arunkumar</option>
+				
+				<option value="binod">Binod Chaudhary</option>
+				
+				<option value="jan">Mr. Jan Creemers</option>
+				
+				<option value="ramesh">P R Ramesh</option>
+				
+				<option value="rupa">Rupa Vora</option>
+				
+				<option value="murgesh">Murugesh Nirani</option>
+					
+					</select>
+				</div>		      
+				    
+				   
+				    <div data-role="fieldcontain" class="feedback">
+				
+						      <label for="text">Feedback:</label>
+						      <textarea cols="40" rows="8" name="text" id="text" ></textarea>
+				    </div>	
+					
+					<button type="submit" data-theme="b" name="submit" value="submit-value">Submit</button>
+				</fieldset>
+			   </form>
+
+			
+				 
+			 </div><!--/content-primary -->		
+			 
+			 
+		    </div>
+		  </div>
+		  
+		  
+ 
+</body> 
+</html>

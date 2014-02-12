@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Welcome</title>
+	
+	<link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.2.0.css" />
+	
+	<link rel="stylesheet" href="css/themes/aol.min.css" />
+	<link rel="stylesheet" href="css/ccsstyle.css" />
+	<link rel="stylesheet" href="css/jquery.mobile.simpledialog.min.css" />
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.js"></script> 
+	<script src="js/jquery.mobile-1.2.0.js"></script>
+	<script src="js/jquery.cookie.js"></script>
+	<script src="js/jquery.mobile.simpledialog.min.js"></script>
+	<script>
+	 
+	 
+	
+	$('#mainPage').live('pageshow', function(event) {
+	   
+	   console.log('inside index script and uid type is '+ typeof($.cookie('uid')));
+	   //uncomment below line to autologin without login form
+	   //$.cookie('uid', 'nehil', { expires: 7, path: '/' });	    
+	    
+	   if($.cookie('uid') === 'null' || typeof($.cookie('uid')) === 'undefined' ) {
+	    console.log('Redirecting from index.html');
+	    window.location.replace('login.html');
+	    //$.mobile.changePage("login.html");
+	   }
+	   else{
+	    console.log('no need to login and uid is = ' + $.cookie('uid'));
+	    $.mobile.changePage("index.html");
+	   }
+	});
+	
+	</script>
+	
+</head>
+<body>  
+ 
+ 
+  <div data-role="page" id="mainPage" data-add-back-btn="true">  
+   <header data-role="header">
+	<h6> CCS 2013 </h6>
+	<a href="index.html" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right">Home</a>
+   </header>  
+   <div data-role="content" >
+    
+	
+	<div id="mainMenu">
+	<ul data-role="listview" data-inset="true" data-theme="a" data-dividertheme="a">
+				<li data-role="list-divider">Menu</li>
+				<li><a href="programMenu.html" rel="external" >  <h1>Program  </h1>    </a></li>
+				<li><a href="sessionMenu.html" rel="external" data-transition="slidefade">  <h1> Sessions  </h1>   </a></li>
+				<li><a href="speakers.html" rel="external" data-transition="slidefade">  <h1> Speakers  </h1>   </a></li>
+				
+				<li><a href="maps.html" data-transition="slidefade">  <h1> Maps  </h1>  </a></li>
+				<li><a href="contactUs.html" data-transition="slidefade">  <h1> Contact Nos  </h1>  </a></li>
+				<li><a href="coursesDetails.html" rel="external"data-transition="slidefade">  <h1> Art of Living &#45; Courses </h1>  </a></li>
+				<li><a href="projects.html" rel="external" data-transition="slidefade">  <h1> Art of Living &#45; Service Projects </h1>  </a></li>
+				<li><a href="#dsy" data-transition="slidefade">  <h1> Dharma Stambha Yojana </h1>  </a></li>
+				<li><a href="#volunteer" data-transition="slidefade">  <h1> Volunteer for a Better India </h1>  </a></li>
+				<li><a href="vote.html" data-ajax="false" data-transition="slidefade">  <h1> Vote! </h1>  </a></li>
+				<li><a href="feedbackMenu.html" data-transition="slidefade" data-icon="arrow-r">  <h1> Feedback </h1>  </a></li>
+				
+	</ul>
+	</div><!-- end of mainmenu div-->
+	
+   </div>
+ </div>
+  <div data-role="page" id="dsy" data-add-back-btn="true">   
+   <header data-role="header">
+	<h1>CCS 2013</h1>
+	<a href="index.html" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right">Home</a>
+   </header>  
+   <div data-role="content" >
+    <h1>Dharma Stambha Yojana </h1>
+	<p>His Holiness Sri Sri Ravi Shankar's vision of a
+	stress-free society is the founding vision behind the Art
+	of Living and its sister organizations. This vision translates into
+	action in two important ways: various large-scale social transformation projects at
+	the societal level, and powerful personal development courses at the individual level.
+	The social transformation projects span such diverse areas as</p>
+	
+	<ol>
+			<li>Holistic rural development</li>
+			<li>Disaster relief and trauma care</li>
+			<li>Free Education for the rural & tribal children</li>
+			<li>Promotion of organic and zero-budget farming</li>
+	</ol>
+	
+	<p>
+	 The Art of Living courses themselves result in stress-free
+	 individuals eager and willing to contribute towards the well being of society.
+	</p>
+	<p>
+	 The Dharma Sthamba Yojana (DSY) is a unique initiative that serves as
+	 a bridge between these two seemingly disparate activities. On the one hand,
+	 there are the service projects, whose impact and effectiveness critically depends
+	 upon monetary resources. On the other hand, there are today millions of socially-conscious
+	 individuals (many of whom are graduates of the Art of Living courses), who are quite willing
+	 to set aside a portion of their income for the betterment of society. The goal of DSY is
+	 thus to effectively channel monetary resources, from the individuals who
+	 are willing to contribute, to the service projects in the field, where their
+	 contribution can have the most beneficial impact on society.
+	</p>
+	<p>DSY welcomes you, to be part of our various social activities by donating a
+	part of your income. 80G tax exemption certificates will be given to you after making the Donations to DSY.</p>
+	   
+	<a href="" >Link</a>
+
+   </div>
+ </div> 
+ 
+ 
+ 
+ <div data-role="page" id="volunteer" data-add-back-btn="true">   
+   <header data-role="header">
+	<h1>CCS 2013</h1>
+	<a href="index.html" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right">Home</a>
+   </header>  
+   <div data-role="content" >
+    <h1>Volunteer for a Better India </h1>
+	<p>Volunteer for a Better India Campaign is a Citizen&#39;s Action Plan encouraging citizens
+	of the country to give &#39;One Hour to the Nation&#39; and making community service a way of life. In the next 2 months
+	over 2000 Activities involving lakhs of people in Delhi-NCR are envisaged to be initiated around various
+	social issues primarily focusing around the 6 Themes.</p>
+	
+	<p>
+	 VFABI is an initiative of The Art of Living in partnership with
+	 various stakeholders of the society to bridge the social issues through the spirit of
+	 Volunteerism and renewed sense of human values.
+	</p>
+	<p>
+	 Delhi-NCR has witnessed many Art of Living initiatives along with people
+	 from all walks of life. Meri Dilli Meri Yamuna, Clean Delhi-NCR Drive, Educators Meet, Yogathon,
+	 Meditate India, Mega Art Competition are some of the initiatives conducted on a mass scale.
+	</p>
+	<a href="" >Link</a>
+
+   </div>
+ </div> 
+ 
+ 
+ 
+ 
+ 
+</body> 
+</html>

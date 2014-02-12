@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Welcome</title>
+	
+	<link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.2.0.css" />
+	
+	<link rel="stylesheet" href="css/themes/aol.min.css" />
+	<link rel="stylesheet" href="css/ccsstyle.css" />
+	<script src="js/jquery.js"></script>
+	 
+	<script src="js/jquery.mobile-1.2.0.js"></script>
+        <script src="js/jquery.cookie.js"></script>
+	<script>	 
+                    // Global declarations - assignments made in $(document).ready() below
+                    $(document).on('pageshow' , function(event, data){
+			     console.log('script fired'); 
+                             //alert("Jquery script working");
+			      var votingOn = 'off';
+			      var numOfOptions = null;
+                              var resultJSONObj = null;
+                              $.ajax({
+                                    url: '/rest/vote/getQ',
+                                    type: 'GET',
+                                    dataType: 'json',
+                                    error : function (xhr, status, error){ document.title='error'; console.log('status:'+status+' xhr:' + xhr); }, 
+                                    success: function (data) {
+                                        resultJSONObj = data;
+					console.log(resultJSONObj);
+					votingOn = resultJSONObj.status;
+					
+					if(votingOn == 'on'){
+						console.log("votingon is : On !! GOGOGO" );
+						showQuestion();
+					}
+					else if(votingOn == 'off'){
+						console.log("Sorry comeback later" );
+						$.mobile.changePage("#myDialog");
+						$("#myDialog").closest("div[data-role=page]").trigger("create");
+						showSorry();  
+					}
+			             }
+                                });
+			     function showQuestion(){
+					console.log("Now lets show the question" );
+					numOfOptions =  resultJSONObj.num;
+					console.log("value of numOfOptions: " + numOfOptions);
+					//var quesText = resultJSONObj.question+" &#63;";
+					var quesText = resultJSONObj.question+"";
+					console.log("value of quesText: " + quesText);
+					var optionsArray = [];
+					for (var i = 1; i <= numOfOptions; i++) {
+						  
+						  switch(i)
+						  {
+						  case 1:
+						   var optionsText = resultJSONObj.option1;
+						    break;
+						  case 2:
+						    var optionsText = resultJSONObj.option2;
+						    break;
+						  case 3:
+						    var optionsText = resultJSONObj.option3;
+						    break;
+						  case 4:
+						    var optionsText = resultJSONObj.option4;
+						    break;
+						  case 5:
+						    var optionsText = resultJSONObj.option5;
+						    break;
+						  case 6:
+						    var optionsText = resultJSONObj.option6;
+						    break;
+						  case 7:
+						    var optionsText = resultJSONObj.option7;
+						    break;
+						  case 8:
+						    var optionsText = resultJSONObj.option8;
+						    break;
+						  case 9:
+						    var optionsText = resultJSONObj.option9;
+						    break;
+						  
+						  default:
+						    
+						  }
+						  var questionHTML = '<fieldset data-role="controlgroup" data-mini="true" id="questionFieldset">';
+						  
+						  optionsArray.push(optionsText);
+						  questionHTML += '<legend id="questionlegend">'+quesText+'</legend>';
+						  
+						  $.each(optionsArray, function(index, value) {
+							    
+							   
+							    questionHTML += '<input type="radio" name="radio-choice" id="radio-choice-'+(index+1)+'" value="'+(index+1)+'"/>  <label for="radio-choice-'+(index+1)+'">'+value+'</label>';      
+							
+							   
+						  });
+						  questionHTML += '</fieldset>';
+						 
+						  $('#displayQuestion').html(questionHTML);
+						 //alert(questionHTML);
+						  console.log(questionHTML);
+						  $("#displayQuestion").closest("div[data-role=page]").trigger("create");
+						  $("input[type='radio']:first").attr("checked", "checked");
+						  $("input[type='radio']").prop("checked",false).checkboxradio("refresh");
+					      }
+					console.log(optionsArray);
+			      
+			     }
+			     
+			     function showSorry(){
+					$.mobile.changePage("#myDialog",'pop', false,true);
+			     }
+			     
+                    });
+		  
+	</script>
+
+</head> 
+
+<body>
+	  
+	  <div data-role="page" id="VoteDisplay">  
+		    <header data-role="header">
+			 <h1>CCS 2013</h1>
+			 <a href="index.html" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right">Home</a>
+		    </header>  
+		    <div data-role="content" >
+			 <div class="content-primary">
+		 
+				 <form action="voteresult.html" method="get" class="ui-body ui-body-a ui-corner-all" data-ajax="false" >
+		 
+					<h2>Vote your choice</h2>
+					<div data-role="fieldcontain" id="displayQuestion"></div>
+					  
+				 <div class="ui-body ui-body-b">
+				 <fieldset class="ui-grid-a">
+						 <div class="ui-block-a"><button type="submit" data-theme="d" data-mini="true">Cancel</button></div>
+						 <div class="ui-block-b"><button type="submit" data-theme="a" data-mini="true">Submit</button></div>
+				 </fieldset>
+				 </div>
+			 </form>
+			 </div><!--/content-primary -->		
+			 
+			 
+		    </div>
+		  </div>
+	  <div id="myDialog" data-role="dialog">
+		    <div id="myMessage"> The Voting is Closed right now. Please Come later </div>
+		    <a href="index.html" data-role="button" data-theme="b">OK</a>
+	  </div>
+ 
+ 
+</body> 
+</html>

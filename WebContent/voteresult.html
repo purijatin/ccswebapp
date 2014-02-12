@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Welcome</title>
+	
+	<link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.2.0.css" />
+	
+	<link rel="stylesheet" href="css/themes/aol.min.css" />
+	<link rel="stylesheet" href="css/ccsstyle.css" />
+	<script src="js/jquery.js"></script>
+	 
+	<script src="js/jquery.mobile-1.2.0.js"></script>
+        <script src="js/jquery.cookie.js"></script>
+	<script>	 
+                        // Global declarations - assignments made in $(document).ready() below
+                   
+			     
+                    $(document).on('pageshow' , function(event, data){
+			     
+			   var choice = getUrlVars()["radio-choice"];
+			   
+			   var uid = $.cookie('uid');
+			   if($.cookie('uid') === 'null' || typeof($.cookie('uid')) === 'undefined' ) {
+				     console.log('You - login, Redirected from voteresult');
+				     window.location.replace('login.html');
+				     //$.mobile.changePage("login.html");
+			    }
+			   
+			      
+			     console.log('choice value = ' +choice + 'and uid is = ' + uid   );
+			     postVote();
+                             function postVote(){
+						      var result = null;
+						      if(uid != null){
+							  console.log('going to post votereult with uid'+uid+'and options'+choice);
+							  $.get("rest/vote/v", { id : uid, option: choice})
+							       .done(function(data) {
+								  //alert("Data Loaded: " + typeof(data)+ " type "+ data);
+								  if(data === 'on'){
+									console.log('thanks');
+									result = '<p> Thanks for Voting your choice </p>';
+								  }
+								  else if(data === 'off'){
+									console.log('sorry');
+									result = '<p> Sorry! now voting is closed </p>';
+								  }
+								  else if(data === 'alreadyVoted'){
+									console.log('alreadyVoted');
+									result = '<p> You have already Voted </p>';
+								  }
+								  $('#resultDisplay').html(result);
+								  $("#VoteDisplay").closest("div[data-role=page]").trigger("create");
+							       });     
+						      }
+						      else{
+							       console.log('You - login, Redirected from voteresult');
+							       window.location.replace('login.html');
+							       
+						      }
+			     }     
+                  });
+		  function getUrlVars()
+		  {
+		      var vars = [], hash;
+		      var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		      for(var i = 0; i < hashes.length; i++)
+		      {
+			  hash = hashes[i].split('=');
+			  vars.push(hash[0]);
+			  vars[hash[0]] = hash[1];
+		      }
+		      return vars;
+		  
+		  }		      
+	</script>
+
+</head> 
+
+<body>
+	  <div data-role="page" id="VoteDisplay">  
+		    <header data-role="header">
+			 <h6> Corporate Culture and Spirituality </h6>
+			 <a href="index.html" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right">Home</a>
+		    </header>  
+		    <div data-role="content" >
+			 <div class="content-primary" id="resultDisplay">
+		 
+				
+			 </div><!--/content-primary -->		
+			 
+			 
+		    </div>
+		  </div>
+	  
+ 
+ 
+</body> 
+</html>
